@@ -1,0 +1,28 @@
+{
+  "name": "react-native-signview",
+  "version": "1.0.0",
+  "description": "Signature View for React Native(Android+IOS).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harishn28/react-native-signview.git"
+  },
+  "keywords": [
+    "Signature",
+    "android",
+    "ios",
+    "react-native"
+  ],
+  "author": "Harish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harishn28/react-native-signview/issues"
+  },
+  "homepage": "https://github.com/Harishn28/react-native-signview#readme",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
+}
