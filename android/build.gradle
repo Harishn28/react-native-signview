@@ -1,0 +1,26 @@
+def getPropFromRootProj(prop, fallback) {
+    println '--------------------Printing ----'
+    println prop
+    println fallback
+    println rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    println '--------------------Printing ----'
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion getPropFromRootProj('compileSdkVersion', 28)
+
+    defaultConfig {
+        minSdkVersion getPropFromRootProj('minSdkVersion', 16)
+        targetSdkVersion getPropFromRootProj('targetSdkVersion', 28)
+    }
+}
+
+dependencies {
+
+}
+
