@@ -50,7 +50,7 @@ public class SignViewManager extends SimpleViewManager<SignatureView> implements
                 event);
     }
 
-    @ReactProp(name = "signatureColor", customType = "Color")
+    @ReactProp(name = "signatureColor", customType = "color")
     public void setSignatureColor(SignatureView view, int color){
         view.setSignatureColor(color);
     }

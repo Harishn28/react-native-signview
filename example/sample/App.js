@@ -9,7 +9,9 @@ export default class App extends Component<Props> {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native</Text>
-        <SignatureView style={{width:400, height:200, backgroundColor:'red'}}/>
+        <SignatureView 
+        style={{width:400, height:200, backgroundColor:'red'}}
+        signatureColor={'#0000ff'}/>
       </View>
     );
   }
