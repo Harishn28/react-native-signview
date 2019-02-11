@@ -20,18 +20,6 @@ public class SignViewManager extends SimpleViewManager<SignatureView> implements
         return "SignView";
     }
 
-
-
-    public Map getExportedCustomBubblingEventTypeConstants() {
-        return MapBuilder.builder()
-                .put(
-                        "onSignAvailable",
-                        MapBuilder.of(
-                                "phasedRegistrationNames",
-                                MapBuilder.of("bubbled", "onSignAvailable")))
-                .build();
-    }
-
     @Override
     protected SignatureView createViewInstance(ThemedReactContext reactContext) {
         SignatureView signView = new SignatureView(reactContext);
@@ -39,6 +27,8 @@ public class SignViewManager extends SimpleViewManager<SignatureView> implements
         return signView;
     }
 
+
+    //SignView Callback functions
     @Override
     public void onSignAvailable(Context context, int targetId, String base64DataOfSign) {
         WritableMap event = Arguments.createMap();
@@ -50,8 +40,31 @@ public class SignViewManager extends SimpleViewManager<SignatureView> implements
                 event);
     }
 
+
+    //JS View Properties(Properties passed from JS to Native
     @ReactProp(name = "signatureColor", customType = "color")
     public void setSignatureColor(SignatureView view, int color){
         view.setSignatureColor(color);
     }
+
+    @ReactProp(name = "" +
+            "" +
+            "" +
+            "")
+    public void setStrokeWidth(SignatureView view, int strokeWidth){
+        view.setSignatureColor(strokeWidth);
+    }
+
+
+    //Events passed from Native to JS.
+    public Map getExportedCustomBubblingEventTypeConstants() {
+        return MapBuilder.builder()
+                .put(
+                        "onSignAvailable",
+                        MapBuilder.of(
+                                "phasedRegistrationNames",
+                                MapBuilder.of("bubbled", "onSignAvailable")))
+                .build();
+    }
+
 }

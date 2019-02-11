@@ -10,18 +10,14 @@ import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Base64;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-
-
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class SignatureView extends View {
 
     private Paint paint;
-    private int paintColor = Color.rgb(0, 0xff, 0);
     private Path currentPath;
     private ArrayList<Path> paths = new ArrayList<Path>();
     private SignViewCallbacks signViewCallbacks;
@@ -42,40 +38,59 @@ public class SignatureView extends View {
         commonInit();
     }
 
-    public void setSignViewCallbacks(SignViewCallbacks signViewCallbacks){
-        this.signViewCallbacks = signViewCallbacks;
-    }
-
     private void commonInit(){
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(paintColor);
+        paint.setColor(Color.rgb(0, 0xff, 0));
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(10);
     }
 
+    public void setSignViewCallbacks(SignViewCallbacks signViewCallbacks){
+        this.signViewCallbacks = signViewCallbacks;
+    }
+
     public void setSignatureColor(int color){
-        int paintColor = Color.rgb(0, 0xff, 0);
-        Log.d("test", String.format("------color green %d, input c %d", paintColor, color));
-        this.paintColor = color;
         this.paint.setColor(color);
         invalidate();
     }
 
-    public String getSignature (){
 
-        Bitmap bitmap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas c = new Canvas(bitmap);
-
-        this.draw(c);
-
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-        byte[] byteArray = byteArrayOutputStream .toByteArray();
-        String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
-
-        return encoded;
+    public void setStrokeWidth(int strokeWidth){
+        this.paint.setStrokeWidth(strokeWidth);
+        invalidate();
     }
 
+    public void clearSignature(){
+        this.paths = new ArrayList<>();
+        this.invalidate();
+        this.updateSignAvailability();
+    }
+
+    public String getSignature (){
+        if(paths.size() > 0){
+            Bitmap bitmap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_8888);
+            Canvas c = new Canvas(bitmap);
+
+            this.draw(c);
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream .toByteArray();
+            String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+            return encoded;
+        } else{
+            return null;
+        }
+    }
+
+    /**
+     * Used to inform the callback users that something has changed in canvas.
+     *
+     * THis methods should be called whenever there is a signature available/Modified
+     * i.e., it should be called on every TouchUp/TouchCanceled event.
+     *
+     * It should also be called when user clears the signature.
+     */
     private void updateSignAvailability(){
         if(signViewCallbacks != null){
             signViewCallbacks.onSignAvailable(getContext(), getId(), getSignature());
@@ -130,7 +145,6 @@ public class SignatureView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         for(int i=0; i<paths.size(); i+=1){
             canvas.drawPath(paths.get(i), paint);
         }
