@@ -23,7 +23,7 @@ export default class App extends Component<Props> {
         <SignatureView 
         ref={this.signView}
         style={{
-          width:400, 
+          width:300, 
           height:200, 
           borderWidth:2, 
           borderColor:'black',

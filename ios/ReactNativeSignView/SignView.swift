@@ -25,12 +25,11 @@ class SignView: UIView {
     }
     
     func commonInit(){
-        print("----------sd");
         self.backgroundColor = UIColor.white;
-        
         pathLayer.path = currentPath.cgPath;
         pathLayer.strokeColor = UIColor.black.cgColor;
         pathLayer.lineWidth = 2;
+        pathLayer.backgroundColor = UIColor.blue.cgColor;
         self.layer.addSublayer(pathLayer);
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap))
@@ -38,20 +37,19 @@ class SignView: UIView {
     }
     
     @objc public func onTap(sender: UITapGestureRecognizer? = nil) {
-        print("----Tapped");
-        currentPath.addArc(withCenter: currentPath.currentPoint, radius: 2, startAngle: 0, endAngle: .pi * 2, clockwise: false);
+        let location = sender!.location(in: self);
+        currentPath.move(to: location);
+        currentPath.addArc(withCenter: location, radius: 1, startAngle: 0, endAngle: .pi * 2, clockwise: true);
         drawPaths();
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("------touches began");
         let touch = touches.first!
         let location = touch.location(in: self)
         currentPath.move(to: location);
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("------touches ended");
         let touch = touches.first!
         let location = touch.location(in: self)
         currentPath.move(to: location);
@@ -59,12 +57,16 @@ class SignView: UIView {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //        print("------touches moved");
-        let touch = touches.first!
-        let location = touch.location(in: self)
-        self.currentPath.addLine(to: location);
-        self.currentPath.move(to: location);
-        drawPaths();
+        if let touch = touches.first {
+            let location = touch.location(in: self);
+            
+            if(location.x > 0 && location.x < self.bounds.width &&
+                location.y > 0 && location.y < self.bounds.height){
+                self.currentPath.addLine(to: location);
+                self.currentPath.move(to: location);
+                drawPaths();
+            }
+        }
     }
     
     @objc public func clearSignature(){
