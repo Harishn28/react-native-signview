@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 const SignViewNative = requireNativeComponent('SignView');
-const SignViewModule = NativeModules.SignViewModule;
+const SignViewModule = NativeModules.SignViewManager;
 
 console.log('--------SignViewModule ', SignViewModule);
 

@@ -67,6 +67,11 @@ class SignView: UIView {
         drawPaths();
     }
     
+    @objc public func clearSignature(){
+        currentPath.removeAllPoints();
+        drawPaths();
+    }
+    
     func drawPaths(){
         pathLayer.path = currentPath.cgPath;
     }

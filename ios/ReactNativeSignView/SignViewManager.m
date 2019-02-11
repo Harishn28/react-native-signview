@@ -25,4 +25,16 @@ RCT_EXPORT_MODULE();
     return signView;
 }
 
+RCT_EXPORT_METHOD(clearSignature:(nonnull NSNumber *)reactTag){
+    [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, SignView *> *viewRegistry) {
+        SignView *signView = viewRegistry[reactTag];
+        
+        if ([signView isKindOfClass:[SignView class]]) {
+            [signView clearSignature];
+        } else{
+            NSLog(@"Expecting ");
+        }
+    }];
+}
+
 @end

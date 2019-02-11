@@ -128,3 +128,6 @@ package-lock.json
 /ReactCommon/**/*.xcodeproj
 RNTester/build
 android/.settings/org.eclipse.buildship.core.prefs
+android/.project
+example/sample/android/.project
+example/sample/android/app/.project
