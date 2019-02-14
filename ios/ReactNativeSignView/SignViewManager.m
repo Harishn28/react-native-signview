@@ -25,6 +25,11 @@ RCT_EXPORT_MODULE();
     return signView;
 }
 
+RCT_CUSTOM_VIEW_PROPERTY(signatureColor, NSInteger , SignView){
+    [view setSignatureColor];
+    
+}
+
 RCT_EXPORT_METHOD(clearSignature:(nonnull NSNumber *)reactTag){
     [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, SignView *> *viewRegistry) {
         SignView *signView = viewRegistry[reactTag];

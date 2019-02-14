@@ -29,7 +29,6 @@ class SignView: UIView {
         pathLayer.path = currentPath.cgPath;
         pathLayer.strokeColor = UIColor.black.cgColor;
         pathLayer.lineWidth = 2;
-        pathLayer.backgroundColor = UIColor.blue.cgColor;
         self.layer.addSublayer(pathLayer);
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap))
@@ -72,6 +71,11 @@ class SignView: UIView {
     @objc public func clearSignature(){
         currentPath.removeAllPoints();
         drawPaths();
+    }
+    
+    @objc public func setSignatureColor(){
+        print("----setSignatureColor: to be done");
+        pathLayer.strokeColor = UIColor.red.cgColor;
     }
     
     func drawPaths(){

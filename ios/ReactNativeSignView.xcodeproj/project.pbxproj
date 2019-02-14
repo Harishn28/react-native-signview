@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		682F002D2211A91600EA2011 /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682F002C2211A91600EA2011 /* SignView.swift */; };
 		682F002F2211A99300EA2011 /* SignViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 682F002E2211A99300EA2011 /* SignViewManager.m */; };
-		682FFFE4221199DF00EA2011 /* ReactNativeSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 682FFFE3221199DF00EA2011 /* ReactNativeSignView.m */; };
-		682FFFE5221199DF00EA2011 /* ReactNativeSignView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 682FFFE2221199DF00EA2011 /* ReactNativeSignView.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,7 +18,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				682FFFE5221199DF00EA2011 /* ReactNativeSignView.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -31,8 +28,6 @@
 		682F002C2211A91600EA2011 /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		682F002E2211A99300EA2011 /* SignViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignViewManager.m; sourceTree = "<group>"; };
 		682FFFDF221199DF00EA2011 /* libReactNativeSignView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeSignView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		682FFFE2221199DF00EA2011 /* ReactNativeSignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactNativeSignView.h; sourceTree = "<group>"; };
-		682FFFE3221199DF00EA2011 /* ReactNativeSignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeSignView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +60,6 @@
 		682FFFE1221199DF00EA2011 /* ReactNativeSignView */ = {
 			isa = PBXGroup;
 			children = (
-				682FFFE2221199DF00EA2011 /* ReactNativeSignView.h */,
-				682FFFE3221199DF00EA2011 /* ReactNativeSignView.m */,
 				682F002C2211A91600EA2011 /* SignView.swift */,
 				682F002B2211A91500EA2011 /* ReactNativeSignView-Bridging-Header.h */,
 				682F002E2211A99300EA2011 /* SignViewManager.m */,
@@ -132,7 +125,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				682F002F2211A99300EA2011 /* SignViewManager.m in Sources */,
-				682FFFE4221199DF00EA2011 /* ReactNativeSignView.m in Sources */,
 				682F002D2211A91600EA2011 /* SignView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

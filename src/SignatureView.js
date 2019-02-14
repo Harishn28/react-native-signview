@@ -12,22 +12,17 @@ import {
 const SignViewNative = requireNativeComponent('SignView');
 const SignViewModule = NativeModules.SignViewManager;
 
-console.log('--------SignViewModule ', SignViewModule);
-
 class SignatureView extends Component {
   constructor(props) {
     super(props);
     this.ref = React.createRef();
-    this.state = {
-      message: 'hello'
-    }
   }
 
   clearSignature = () => {
     SignViewModule.clearSignature(findNodeHandle(this.ref.current));
   }
 
-  onSignAvailable = (event) => {
+  _onSignAvailable = (event) => {
     const { onChangeInSign } = this.props;
     if(onChangeInSign){
       onChangeInSign(event.nativeEvent.signature);
@@ -37,15 +32,13 @@ class SignatureView extends Component {
   render() {
     const { signatureColor, style, ...props } = this.props;
     return (
-      <View style={style}>
         <SignViewNative
           ref={this.ref}
-          style={{width:'100%', height:'100%'}}
+          style={{...style}}
           {...props}
-          onSignAvailable={this.onSignAvailable}
+          onSignAvailable={this._onSignAvailable}
           signatureColor={processColor(signatureColor)}
         />
-      </View>
     );
   }
 }

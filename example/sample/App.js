@@ -28,7 +28,7 @@ export default class App extends Component<Props> {
           borderWidth:2, 
           borderColor:'black',
         }}
-        signatureColor={'black'}
+        signatureColor={'red'}
         strokeWidth={40}
         />
         <Button title={'clear signature'} onPress={this.clearSignature}/>
