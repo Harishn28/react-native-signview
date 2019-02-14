@@ -16,6 +16,10 @@ export default class App extends Component<Props> {
     }
   }
 
+  onChangeInSign = (base64StringOfSign) => {
+    console.log('--------_Signature ', base64StringOfSign);
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -30,6 +34,7 @@ export default class App extends Component<Props> {
         }}
         signatureColor={'red'}
         strokeWidth={40}
+        onChangeInSign={this.onChangeInSign}
         />
         <Button title={'clear signature'} onPress={this.clearSignature}/>
       </View>
