@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 const SignViewNative = requireNativeComponent('SignView');
-const SignViewModule = NativeModules.SignViewManager;
+const SignViewModule = NativeModules.SignViewManager || NativeModules.SignViewModule;
 
 class SignatureView extends Component {
   constructor(props) {

@@ -17,7 +17,11 @@ export default class App extends Component<Props> {
   }
 
   onChangeInSign = (base64StringOfSign) => {
-    console.log('--------_Signature ', base64StringOfSign);
+    if(base64StringOfSign){
+      console.log('--------_Signature ', base64StringOfSign.length);
+    } else{
+      console.log('----------No Signature');
+    }
   }
 
   render() {
@@ -27,7 +31,7 @@ export default class App extends Component<Props> {
         <SignatureView 
         ref={this.signView}
         style={{
-          width:300, 
+          width:'100%', 
           height:200, 
           borderWidth:2, 
           borderColor:'black',

@@ -21,7 +21,6 @@ public class SignViewModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void clearSignature(final int viewTag){
-        Log.d("test","---------clear sginature");
         ReactApplicationContext context = getReactApplicationContext();
         UIManagerModule uiManager = context.getNativeModule(UIManagerModule.class);
         uiManager.addUIBlock(new UIBlock() {
