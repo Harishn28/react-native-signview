@@ -73,9 +73,9 @@ class SignView: UIView {
         drawPaths();
     }
     
-    @objc public func setSignatureColor(){
+    @objc public func setSignatureColor(_ signColor:UIColor){
         print("----setSignatureColor: to be done");
-        pathLayer.strokeColor = UIColor.red.cgColor;
+        pathLayer.strokeColor = signColor.cgColor;
     }
     
     func drawPaths(){

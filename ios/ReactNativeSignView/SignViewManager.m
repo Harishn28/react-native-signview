@@ -25,9 +25,9 @@ RCT_EXPORT_MODULE();
     return signView;
 }
 
-RCT_CUSTOM_VIEW_PROPERTY(signatureColor, NSInteger , SignView){
-    [view setSignatureColor];
-    
+
+RCT_CUSTOM_VIEW_PROPERTY(signatureColor, UIColor , SignView){
+    [view setSignatureColor: [RCTConvert UIColor:json]];
 }
 
 RCT_EXPORT_METHOD(clearSignature:(nonnull NSNumber *)reactTag){

@@ -7,6 +7,7 @@ import {
   ViewPropTypes,
   processColor,
   findNodeHandle,
+  Platform,
 } from 'react-native';
 
 const SignViewNative = requireNativeComponent('SignView');
@@ -29,6 +30,16 @@ class SignatureView extends Component {
     }
   }
 
+  getSignatureColor = () => {
+    const { signatureColor } = this.props;
+
+    if(Platform.OS === 'android'){
+      return processColor(signatureColor);
+    } 
+
+    return signatureColor;
+  }
+
   render() {
     const { signatureColor, style, ...props } = this.props;
     return (
@@ -37,7 +48,7 @@ class SignatureView extends Component {
           style={{...style}}
           {...props}
           onSignAvailable={this._onSignAvailable}
-          signatureColor={processColor(signatureColor)}
+          signatureColor={this.getSignatureColor()}
         />
     );
   }

@@ -32,7 +32,7 @@ export default class App extends Component<Props> {
           borderWidth:2, 
           borderColor:'black',
         }}
-        signatureColor={'red'}
+        signatureColor={'darkorange'}
         strokeWidth={40}
         onChangeInSign={this.onChangeInSign}
         />
