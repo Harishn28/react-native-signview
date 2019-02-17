@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		682E7A372219457E00ADDFF6 /* SignViewCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */; };
+		682E7A392219469B00ADDFF6 /* RCTSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E7A382219469B00ADDFF6 /* RCTSignView.swift */; };
 		682F002D2211A91600EA2011 /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682F002C2211A91600EA2011 /* SignView.swift */; };
 		682F002F2211A99300EA2011 /* SignViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 682F002E2211A99300EA2011 /* SignViewManager.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewCallbacks.swift; sourceTree = "<group>"; };
+		682E7A382219469B00ADDFF6 /* RCTSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCTSignView.swift; sourceTree = "<group>"; };
 		682F002B2211A91500EA2011 /* ReactNativeSignView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeSignView-Bridging-Header.h"; sourceTree = "<group>"; };
 		682F002C2211A91600EA2011 /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		682F002E2211A99300EA2011 /* SignViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignViewManager.m; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				682F002C2211A91600EA2011 /* SignView.swift */,
 				682F002B2211A91500EA2011 /* ReactNativeSignView-Bridging-Header.h */,
 				682F002E2211A99300EA2011 /* SignViewManager.m */,
+				682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */,
+				682E7A382219469B00ADDFF6 /* RCTSignView.swift */,
 			);
 			path = ReactNativeSignView;
 			sourceTree = "<group>";
@@ -125,6 +131,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				682F002F2211A99300EA2011 /* SignViewManager.m in Sources */,
+				682E7A392219469B00ADDFF6 /* RCTSignView.swift in Sources */,
+				682E7A372219457E00ADDFF6 /* SignViewCallbacks.swift in Sources */,
 				682F002D2211A91600EA2011 /* SignView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
