@@ -4,6 +4,7 @@ Signature view for react-native.
 
 ## installing
 `npm i react-native-signview`
+`react-native link`
 
 ## usage
 ```
