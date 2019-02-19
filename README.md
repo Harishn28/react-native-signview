@@ -1,4 +1,13 @@
+
+
 Signature view for react-native.
+
+#Getting Started
+
+##installing
+`npm i react-native-signview`
+
+
 
 import { SignatureView } from 'react-native-signview';
 
