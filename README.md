@@ -25,12 +25,12 @@ export default class SomeComponent extends Component<Props> {
 }
 ```
 ## Properties
-* ### style: [View Styles](https://facebook.github.io/react-native/docs/view-style-props)
-* ### signatureColor: Color for signature(stroke color)
-* ### strokeWidth: width of signature (stroke width)
+* ###### style: [View Styles](https://facebook.github.io/react-native/docs/view-style-props)
+* ###### signatureColor: Color for signature(stroke color)
+* ###### strokeWidth: width of signature (stroke width)
 
 ## Callbacks
-* ### onChangeInSign: Triggered whenever there is a change in signature. Base64 string of signature will be passes as parameter.
+* ###### onChangeInSign: Triggered whenever there is a change in signature. Base64 string of signature will be passes as parameter.
 
 ## Methods
-* ### clearSignature: When called it'll clear the signature. onChangeInSign gets triggered with null as parameter.
+* ###### clearSignature: When called it'll clear the signature. onChangeInSign gets triggered with null as parameter.
