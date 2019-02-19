@@ -43,13 +43,15 @@ class SignatureView extends Component {
   render() {
     const { signatureColor, style, ...props } = this.props;
     return (
+      <View style={style}>
         <SignViewNative
           ref={this.ref}
-          style={{...style}}
+          style={{width:'100%', height:'100%'}}
           {...props}
           onSignAvailable={this._onSignAvailable}
           signatureColor={this.getSignatureColor()}
         />
+      </View>
     );
   }
 }
