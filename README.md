@@ -2,27 +2,35 @@
 
 Signature view for react-native.
 
-#Getting Started
-
-##installing
+## installing
 `npm i react-native-signview`
 
-
-
+## usage
+```
+...
+import {Text, Button, View} from 'react-native';
 import { SignatureView } from 'react-native-signview';
 
-Use as a normal view in you app.
+export default class SomeComponent extends Component<Props> {
 
+...
+
+  render() {
+    return (
+      <View style={{flex:1}}>
+        <SignatureView />
+      </View>
+    );
+  }
+}
 ```
-<SignatureView 
-    ref={this.signView}
-    style={{
-        width:300, 
-        height:200, 
-        borderWidth:2, 
-        borderColor:'black',
-    }}
-    signatureColor={'red'}
-    strokeWidth={40}
-/>
-```
+## Properties
+* ### style: [View Styles](https://facebook.github.io/react-native/docs/view-style-props)
+* ### signatureColor: Color for signature(stroke color)
+* ### strokeWidth: width of signature (stroke width)
+
+## Callbacks
+* ### onChangeInSign: Triggered whenever there is a change in signature. Base64 string of signature will be passes as parameter.
+
+## Methods
+* ### clearSignature: When called it'll clear the signature. onChangeInSign gets triggered with null as parameter.
