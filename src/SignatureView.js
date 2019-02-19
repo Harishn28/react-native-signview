@@ -9,6 +9,7 @@ import {
   findNodeHandle,
   Platform,
 } from 'react-native';
+import PropTypes from 'prop-types';
 
 const SignViewNative = requireNativeComponent('SignView');
 const SignViewModule = NativeModules.SignViewManager || NativeModules.SignViewModule;
@@ -57,18 +58,18 @@ class SignatureView extends Component {
 }
 
 
-// SignatureView.propTypes = {
-//   style:ViewPropTypes.style,
-//   onSignAvailable: PropTypes.func,
-//   signatureColor: PropTypes.string,
-//   strokeWidth: PropTypes.number,
-// }
+SignatureView.propTypes = {
+  style:ViewPropTypes.style,
+  onChangeInSign: PropTypes.func,
+  signatureColor: PropTypes.string,
+  strokeWidth: PropTypes.number,
+}
 
-// SignatureView.defaultProps = {
-//   style:null,
-//   onSignAvailable: null,
-//   signatureColor: 'black',
-//   strokeWidth: 10,
-// }
+SignatureView.defaultProps = {
+  style:{width:'100%', height:200, backgroundColor:'white', borderWidth:2, borderColor:'black'},
+  onChangeInSign: null,
+  signatureColor: 'black',
+  strokeWidth: 6,
+}
 
 export default SignatureView;

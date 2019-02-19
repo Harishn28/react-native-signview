@@ -24,5 +24,8 @@
   "homepage": "https://github.com/Harishn28/react-native-signview#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   }
 }

@@ -18,9 +18,9 @@ export default class App extends Component<Props> {
 
   onChangeInSign = (base64StringOfSign) => {
     if(base64StringOfSign){
-      console.log('--------_Signature ', base64StringOfSign.length);
+      console.log('Signature Available', base64StringOfSign.length);
     } else{
-      console.log('----------No Signature');
+      console.log('No Signature');
     }
   }
 
@@ -29,16 +29,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
         <Text>Sign in below box</Text>
         <SignatureView 
-        ref={this.signView}
-        style={{
-          width:'100%', 
-          height:200, 
-          borderWidth:2, 
-          borderColor:'black',
-        }}
-        signatureColor={'darkorange'}
-        strokeWidth={40}
-        onChangeInSign={this.onChangeInSign}
+          ref={this.signView}
         />
         <Button title={'clear signature'} onPress={this.clearSignature}/>
       </View>

@@ -47,12 +47,9 @@ public class SignViewManager extends SimpleViewManager<SignatureView> implements
         view.setSignatureColor(color);
     }
 
-    @ReactProp(name = "" +
-            "" +
-            "" +
-            "")
+    @ReactProp(name = "strokeWidth")
     public void setStrokeWidth(SignatureView view, int strokeWidth){
-        view.setSignatureColor(strokeWidth);
+        view.setStrokeWidth(strokeWidth);
     }
 
 
