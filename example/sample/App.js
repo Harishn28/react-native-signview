@@ -18,7 +18,7 @@ export default class App extends Component<Props> {
 
   onChangeInSign = (base64StringOfSign) => {
     if(base64StringOfSign){
-      console.log('Signature Available', base64StringOfSign.length);
+      console.log('Signature Available', base64StringOfSign);
     } else{
       console.log('No Signature');
     }
@@ -30,6 +30,7 @@ export default class App extends Component<Props> {
         <Text>Sign in below box</Text>
         <SignatureView 
           ref={this.signView}
+          onChangeInSign={this.onChangeInSign}
         />
         <Button title={'clear signature'} onPress={this.clearSignature}/>
       </View>

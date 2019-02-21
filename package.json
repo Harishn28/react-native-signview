@@ -1,6 +1,6 @@
 {
   "name": "react-native-signview",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Signature View for React Native(Android+IOS).",
   "main": "src/index.js",
   "scripts": {

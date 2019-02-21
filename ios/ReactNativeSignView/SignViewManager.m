@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <React/RCTViewManager.h>
 #import <React/RCTUIManager.h>
-#import <ReactNativeSignView-Swift.h>
+#import "SignView.h"
+#import "RCTSignView.h"
 
 @interface SignViewManager : RCTViewManager<RCTBridgeModule>
 @end

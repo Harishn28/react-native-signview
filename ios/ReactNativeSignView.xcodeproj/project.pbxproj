@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681F0990221CE3A7003A4869 /* SignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681F098F221CE3A7003A4869 /* SignView.m */; };
+		681F09B6221CE812003A4869 /* RCTSignView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681F09B5221CE812003A4869 /* RCTSignView.m */; };
 		682E7A372219457E00ADDFF6 /* SignViewCallbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */; };
 		682E7A392219469B00ADDFF6 /* RCTSignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682E7A382219469B00ADDFF6 /* RCTSignView.swift */; };
 		682F002D2211A91600EA2011 /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682F002C2211A91600EA2011 /* SignView.swift */; };
@@ -26,12 +28,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		681F098F221CE3A7003A4869 /* SignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignView.m; sourceTree = "<group>"; };
+		681F09B4221CE3E2003A4869 /* SignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignView.h; sourceTree = "<group>"; };
+		681F09B5221CE812003A4869 /* RCTSignView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTSignView.m; sourceTree = "<group>"; };
+		681F09B7221CE8F0003A4869 /* RCTSignView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTSignView.h; sourceTree = "<group>"; };
 		682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewCallbacks.swift; sourceTree = "<group>"; };
 		682E7A382219469B00ADDFF6 /* RCTSignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCTSignView.swift; sourceTree = "<group>"; };
 		682F002B2211A91500EA2011 /* ReactNativeSignView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactNativeSignView-Bridging-Header.h"; sourceTree = "<group>"; };
 		682F002C2211A91600EA2011 /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		682F002E2211A99300EA2011 /* SignViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignViewManager.m; sourceTree = "<group>"; };
 		682FFFDF221199DF00EA2011 /* libReactNativeSignView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReactNativeSignView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68777C9A221DC86D008550D3 /* SignViewCallbacks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignViewCallbacks.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +52,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681F09B8221CE942003A4869 /* unused_swift_code */ = {
+			isa = PBXGroup;
+			children = (
+				682F002B2211A91500EA2011 /* ReactNativeSignView-Bridging-Header.h */,
+				682F002C2211A91600EA2011 /* SignView.swift */,
+				682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */,
+				682E7A382219469B00ADDFF6 /* RCTSignView.swift */,
+			);
+			path = unused_swift_code;
+			sourceTree = "<group>";
+		};
 		682FFFD6221199DF00EA2011 = {
 			isa = PBXGroup;
 			children = (
@@ -64,11 +82,13 @@
 		682FFFE1221199DF00EA2011 /* ReactNativeSignView */ = {
 			isa = PBXGroup;
 			children = (
-				682F002C2211A91600EA2011 /* SignView.swift */,
-				682F002B2211A91500EA2011 /* ReactNativeSignView-Bridging-Header.h */,
+				681F09B8221CE942003A4869 /* unused_swift_code */,
 				682F002E2211A99300EA2011 /* SignViewManager.m */,
-				682E7A362219457E00ADDFF6 /* SignViewCallbacks.swift */,
-				682E7A382219469B00ADDFF6 /* RCTSignView.swift */,
+				681F098F221CE3A7003A4869 /* SignView.m */,
+				681F09B4221CE3E2003A4869 /* SignView.h */,
+				681F09B5221CE812003A4869 /* RCTSignView.m */,
+				681F09B7221CE8F0003A4869 /* RCTSignView.h */,
+				68777C9A221DC86D008550D3 /* SignViewCallbacks.h */,
 			);
 			path = ReactNativeSignView;
 			sourceTree = "<group>";
@@ -131,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				682F002F2211A99300EA2011 /* SignViewManager.m in Sources */,
+				681F09B6221CE812003A4869 /* RCTSignView.m in Sources */,
 				682E7A392219469B00ADDFF6 /* RCTSignView.swift in Sources */,
+				681F0990221CE3A7003A4869 /* SignView.m in Sources */,
 				682E7A372219457E00ADDFF6 /* SignViewCallbacks.swift in Sources */,
 				682F002D2211A91600EA2011 /* SignView.swift in Sources */,
 			);
@@ -255,7 +277,7 @@
 		682FFFE9221199DF00EA2011 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -266,7 +288,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeSignView/ReactNativeSignView-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeSignView/unused_swift_code/ReactNativeSignView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -276,7 +298,7 @@
 		682FFFEA221199DF00EA2011 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -287,7 +309,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeSignView/ReactNativeSignView-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "ReactNativeSignView/unused_swift_code/ReactNativeSignView-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
