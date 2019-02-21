@@ -7,7 +7,6 @@ Signature view for react-native.
 
 `react-native link`
 
-for **IOS** users, if you get any error in building, please create an empty swift file in your project [COULD NOT FOUND AUTOLIKED LIBRARY](https://stackoverflow.com/questions/50096025/it-gives-errors-when-using-swift-static-library-with-objective-c-project/50495316#50495316)
 
 ## usage
 ```
