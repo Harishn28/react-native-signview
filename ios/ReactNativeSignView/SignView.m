@@ -107,7 +107,13 @@
         [pathLayer renderInContext:UIGraphicsGetCurrentContext()];
         UIImage* signatureImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        return signatureImage;
+        
+        CGRect signatureBoundingRect = [currentPath bounds];
+        CGImageRef imageRef = CGImageCreateWithImageInRect(signatureImage.CGImage, signatureBoundingRect);
+        UIImage *croppedImage   = [UIImage imageWithCGImage:imageRef];
+        CGImageRelease(imageRef);
+        
+        return croppedImage;
     }
 }
 
