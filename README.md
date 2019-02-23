@@ -33,7 +33,7 @@ export default class SomeComponent extends Component<Props> {
 * strokeWidth: width of signature (stroke width)
 
 ## Callbacks
-* onChangeInSign: Triggered whenever there is a change in signature. Base64 string of signature will be passes as parameter.
+* onChangeInSign: Triggered whenever there is a change in signature. Base64 string of signature will be passed as parameter.
 
 ## Methods
 * clearSignature: When called it'll clear the signature. onChangeInSign gets triggered with null as parameter.
