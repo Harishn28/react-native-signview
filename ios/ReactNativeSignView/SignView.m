@@ -34,7 +34,7 @@
 }
 
 - (void) commonInit{
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = nil;
     pathLayer = [[CAShapeLayer alloc] init];
     currentPath = [[UIBezierPath alloc] init];
     pathLayer.path = [currentPath CGPath];
@@ -87,21 +87,30 @@
     pathLayer.path = [currentPath CGPath];
 }
 
+-(UIImage*) rotateImage:(UIImage *)image : (CGFloat) rotation{
+    CGAffineTransform t = CGAffineTransformMakeRotation(rotation);
+    CGRect sizeRect = (CGRect) {.size = image.size};
+    CGRect destRect = CGRectApplyAffineTransform(sizeRect, t);
+    CGSize destinationSize = destRect.size;
+    
+    UIGraphicsBeginImageContext(destinationSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextTranslateCTM(context, destinationSize.width / 2.0f, destinationSize.height / 2.0f);
+    CGContextRotateCTM(context, rotation);
+    [image drawInRect:CGRectMake(-image.size.width / 2.0f, -image.size.height / 2.0f, image.size.width, image.size.height)];
+    
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
 
-/*
- 
- private func getBase64StringOfImage(_ image:UIImage) -> String? {
- let nsDataOfImage = image.pngData();
- let base64StringOfImage = nsDataOfImage?.base64EncodedString();
- return base64StringOfImage;
- }
- */
 
 -(UIImage *)getSignatureImage{
     if(currentPath.isEmpty) return nil;
     else{
-        CGFloat width = [self bounds].size.width;
-        CGFloat height = [self bounds].size.height;
+        CGRect signBounds = currentPath.bounds;
+        CGFloat width = signBounds.origin.x + signBounds.size.width;
+        CGFloat height = signBounds.origin.y + signBounds.size.height;
         
         UIGraphicsBeginImageContext(CGSizeMake(width, height));
         [pathLayer renderInContext:UIGraphicsGetCurrentContext()];

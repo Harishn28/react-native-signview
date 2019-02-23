@@ -2,6 +2,7 @@ package com.harishn28.reactnativesignview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -18,8 +19,7 @@ import java.util.ArrayList;
 public class SignatureView extends View {
 
     private Paint paint;
-    private Path currentPath;
-    private ArrayList<Path> paths = new ArrayList<Path>();
+    private Path currentPath = new Path();
     private SignViewCallbacks signViewCallbacks;
     int vl, vr, vt, vb;
 
@@ -61,20 +61,39 @@ public class SignatureView extends View {
     }
 
     public void clearSignature(){
-        this.paths = new ArrayList<>();
+        this.currentPath.reset();
         this.invalidate();
         this.updateSignAvailability();
     }
 
+    private Bitmap cropImage(Bitmap image, RectF boundingRect){
+        return Bitmap.createBitmap(image,
+                (int)boundingRect.left ,
+                (int)boundingRect.top,
+                (int)boundingRect.width(),
+                (int)boundingRect.height()
+        );
+    }
+
     public String getSignature (){
-        if(paths.size() > 0){
-            Bitmap bitmap = Bitmap.createBitmap(this.getWidth(), this.getHeight(), Bitmap.Config.ARGB_8888);
+        if(!currentPath.isEmpty()){
+            RectF signBoundingRectangle = new RectF();
+            currentPath.computeBounds(signBoundingRectangle, true);
+
+
+            float canvasWidth = signBoundingRectangle.left + signBoundingRectangle.width();
+            float canvasHeight = signBoundingRectangle.top + signBoundingRectangle.height();
+
+            Bitmap bitmap = Bitmap.createBitmap((int)canvasWidth, (int)canvasHeight, Bitmap.Config.ARGB_8888);
             Canvas c = new Canvas(bitmap);
 
             this.draw(c);
 
+
+            Bitmap croppedBitmap = cropImage(bitmap, signBoundingRectangle);
+
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            croppedBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
             byte[] byteArray = byteArrayOutputStream .toByteArray();
             String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
             return encoded;
@@ -107,21 +126,12 @@ public class SignatureView extends View {
 
 
         if(action == MotionEvent.ACTION_DOWN){
-            currentPath = new Path();
-            currentPath.setLastPoint(event.getX(), event.getY());
-            paths.add(currentPath);
+            currentPath.moveTo(event.getX(), event.getY());
         } else if(action == MotionEvent.ACTION_UP){
             if(ex > vl && ex < vr && ey > vt && ey < vb){
-                RectF rec = new RectF();
-                currentPath.computeBounds(rec, true);
-
-                if(Math.abs(rec.right - rec.left) <= 1){
-                    currentPath.addCircle(event.getX(), event.getY(), 5, Path.Direction.CW);
-                }
-
+//                currentPath.addCircle(event.getX(), event.getY(), 5, Path.Direction.CW);
                 this.updateSignAvailability();
             }
-
         }
         else if(action == MotionEvent.ACTION_MOVE){
             if(ex > vl && ex < vr && ey > vt && ey < vb){
@@ -145,8 +155,6 @@ public class SignatureView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        for(int i=0; i<paths.size(); i+=1){
-            canvas.drawPath(paths.get(i), paint);
-        }
+        canvas.drawPath(currentPath, paint);
     }
 }
