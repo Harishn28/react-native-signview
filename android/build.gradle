@@ -1,9 +1,4 @@
 def getPropFromRootProj(prop, fallback) {
-    println '--------------------Printing ----'
-    println prop
-    println fallback
-    println rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-    println '--------------------Printing ----'
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
