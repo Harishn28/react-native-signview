@@ -42,7 +42,6 @@ public class SignatureView extends View {
         paint = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint.setColor(Color.rgb(0, 0xff, 0));
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(10);
     }
 
     public void setSignViewCallbacks(SignViewCallbacks signViewCallbacks){

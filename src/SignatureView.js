@@ -14,6 +14,8 @@ import PropTypes from 'prop-types';
 const SignViewNative = requireNativeComponent('SignView');
 const SignViewModule = NativeModules.SignViewManager || NativeModules.SignViewModule;
 
+const isAndroidPlatform = Platform.OS === 'android';
+
 class SignatureView extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +36,7 @@ class SignatureView extends Component {
   getSignatureColor = () => {
     const { signatureColor } = this.props;
 
-    if(Platform.OS === 'android'){
+    if(isAndroidPlatform){
       return processColor(signatureColor);
     } 
 
@@ -42,7 +44,7 @@ class SignatureView extends Component {
   }
 
   render() {
-    const { signatureColor, style, ...props } = this.props;
+    const { signatureColor, strokeWidth, style, ...props } = this.props;
     return (
       <View style={style}>
         <SignViewNative
@@ -51,6 +53,7 @@ class SignatureView extends Component {
           {...props}
           onSignAvailable={this._onSignAvailable}
           signatureColor={this.getSignatureColor()}
+          strokeWidth = { isAndroidPlatform ? strokeWidth + 5 : strokeWidth}
         />
       </View>
     );

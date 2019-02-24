@@ -33,7 +33,7 @@ export default class App extends Component<Props> {
           onChangeInSign={this.onChangeInSign}
           style={styles.signBox}
           strokeWidth={2}
-          signatureColor={'red'}
+          signatureColor={'blue'}
         />
         <Button title={'clear signature'} onPress={this.clearSignature}/>
       </View>
