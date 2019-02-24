@@ -144,6 +144,10 @@
     pathLayer.strokeColor = signColor.CGColor;
 }
 
+- (void)setStrokeWidth: (CGFloat) strokeWidth{
+    pathLayer.lineWidth = strokeWidth;
+}
+
 - (void)clearSignature{
     [currentPath removeAllPoints];
     [self drawPaths];

@@ -31,6 +31,9 @@ export default class App extends Component<Props> {
         <SignatureView 
           ref={this.signView}
           onChangeInSign={this.onChangeInSign}
+          style={styles.signBox}
+          strokeWidth={2}
+          signatureColor={'red'}
         />
         <Button title={'clear signature'} onPress={this.clearSignature}/>
       </View>
@@ -45,4 +48,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  signBox: {
+    height:200,
+    width:'90%', 
+    margin:20,
+    backgroundColor:'white',
+    borderColor:'black',
+    borderWidth:1,
+    borderRadius:4
+  }
 });

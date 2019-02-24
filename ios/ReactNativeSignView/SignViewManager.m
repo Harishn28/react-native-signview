@@ -33,6 +33,10 @@ RCT_CUSTOM_VIEW_PROPERTY(signatureColor, UIColor , RCTSignView){
     [view setSignatureColor: [RCTConvert UIColor:json]];
 }
 
+RCT_CUSTOM_VIEW_PROPERTY(strokeWidth, CGFloat , RCTSignView){
+    [view setStrokeWidth: [RCTConvert CGFloat:json]];
+}
+
 RCT_EXPORT_METHOD(clearSignature:(nonnull NSNumber *)reactTag){
     [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, RCTSignView *> *viewRegistry) {
         RCTSignView *signView = viewRegistry[reactTag];

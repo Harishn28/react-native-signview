@@ -17,6 +17,7 @@
 @property (nonatomic,strong) id <SignViewCallbacks> delegate;
 
 -(void)setSignatureColor: (UIColor*) signColor;
+-(void)setStrokeWidth: (CGFloat) strokeWidth;
 -(void)clearSignature;
 - (void) commonInit;
 @end
